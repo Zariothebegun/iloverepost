@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ILOVEREPOST - Discover TikTok Reposts</title>
+    <meta
+      name="description"
+      content="Search reposted videos from TikTok profiles."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="top-banner" id="top-banner">
+      <div class="container banner-content">
+        <div class="banner-copy">
+          <span class="banner-pill">AD</span>
+          <p>
+            Want unlimited access? Upgrade to Pro for just <strong>€4.99/month</strong>
+          </p>
+        </div>
+        <div class="banner-actions">
+          <a class="primary-button small" href="#pricing">Upgrade</a>
+          <button class="banner-dismiss" id="dismiss-banner" aria-label="Dismiss ad">x</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="/">
+          <span class="brand-heart">&hearts;</span>
+          <span>ILOVEREPOST</span>
+        </a>
+        <nav class="header-actions">
+          <button class="ghost-button" id="login-button" type="button">Login</button>
+          <button class="primary-button small" id="signup-button" type="button">Sign Up</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-gradient"></div>
+        <div class="container hero-inner">
+          <div class="hero-badge">Discover hidden TikTok activity</div>
+          <h1>
+            Discover reposts of any
+            <span>public TikTok profile</span>
+          </h1>
+          <p>
+            Search by username and filter reposted videos by any keyword in the caption or description.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#search">Try it Free</a>
+            <a class="outline-button" href="#pricing">View Pro Features</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="search-section" id="search">
+        <div class="container">
+          <form class="search-card" id="search-form">
+            <div class="field-grid">
+              <label class="field">
+                <span>TikTok Username</span>
+                <input id="username" name="username" type="text" placeholder="@username" required />
+              </label>
+
+              <label class="field">
+                <span>Search Type</span>
+                <input type="text" value="Reposts only" disabled />
+              </label>
+
+              <label class="field">
+                <span>Keyword (optional)</span>
+                <input id="keyword" name="keyword" type="text" placeholder="Filter by keyword..." />
+              </label>
+
+              <div class="field action-field">
+                <span>&nbsp;</span>
+                <button class="primary-button search-button" id="search-button" type="submit">
+                  Search
+                </button>
+              </div>
+            </div>
+
+            <div class="helper-row">
+              <span class="helper-pill" id="plan-pill">FREE</span>
+              <span id="account-summary">Reposts only | Max 3 searches per day</span>
+              <button class="outline-button small-toggle-button" id="quick-plan-toggle" type="button">
+                Switch to Pro
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="results-section" id="results">
+        <div class="container">
+          <div class="results-shell">
+            <div class="results-header">
+              <div>
+                <p class="section-kicker">Search results</p>
+                <h2 id="results-title">TikTok videos</h2>
+              </div>
+              <button class="outline-button" id="load-more" type="button" hidden>Load More</button>
+            </div>
+
+            <div class="status-card" id="status-card">
+              Enter a TikTok username to search reposted videos.
+            </div>
+
+            <div class="profile-card" id="profile-card" hidden>
+              <img id="profile-avatar" alt="" />
+              <div>
+                <h3 id="profile-name"></h3>
+                <p id="profile-meta"></p>
+              </div>
+            </div>
+
+            <div class="results-grid" id="results-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing-section" id="pricing">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Choose Your Plan</h2>
+            <p>Start free and upgrade when you need more power.</p>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <div class="pricing-head">
+                <h3>Free</h3>
+                <p><strong>$0</strong>/month</p>
+              </div>
+              <ul class="pricing-list">
+                <li>Search Reposts</li>
+                <li>Maximum 3 searches per day</li>
+              </ul>
+              <button class="outline-button pricing-button" id="free-plan-button" type="button" disabled>
+                Current Plan
+              </button>
+            </article>
+
+            <article class="pricing-card pricing-card-pro">
+              <div class="pricing-badge">Most Popular</div>
+              <div class="pricing-head">
+                <h3>Pro</h3>
+                <p><strong>€4.99</strong>/month</p>
+              </div>
+              <ul class="pricing-list">
+                <li>Search Reposts</li>
+                <li>Download reposted videos</li>
+                <li>Unlimited searches</li>
+                <li>Ad-free experience</li>
+              </ul>
+              <button class="primary-button pricing-button" id="pro-plan-button" type="button">
+                Upgrade to Pro
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div class="brand">
+          <span class="brand-heart">&hearts;</span>
+          <span>ILOVEREPOST</span>
+        </div>
+        <p>2026 ILOVEREPOST. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <template id="result-card-template">
+      <article class="result-card">
+        <div class="thumb-wrap">
+          <img class="thumb" alt="" />
+        </div>
+        <div class="result-content">
+          <p class="result-caption"></p>
+          <p class="result-author"></p>
+          <div class="result-meta">
+            <span class="meta-pill meta-likes"></span>
+            <div class="result-actions">
+              <button class="ghost-button download-video" type="button">Download Video</button>
+              <a class="ghost-button open-video" target="_blank" rel="noopener noreferrer">View on TikTok</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
